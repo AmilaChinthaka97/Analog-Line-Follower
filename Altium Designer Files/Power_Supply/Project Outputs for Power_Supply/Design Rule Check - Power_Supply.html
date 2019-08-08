@@ -1,0 +1,407 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD17\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">5/26/2019</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">11:20:36 AM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc" class="file"><acronym title="C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc">C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">21</td></tr>
+</table>
+</td>
+</table><a name="IDHVDKOSH0SCY1D31SOZLDVVX3OEJZRZWTDZSHNBOQNHYWUKB3LAF"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIJJ3JSJ2EZU1G2ERVXVC1ZBBCHOHOKPBLL4E5PI0AQFMSZH0WQ5F">Clearance Constraint (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDUKDP4OL1JWHOLZ0HQFVCSQUSLCYF0JUV5GFXXWORDHGJXGMU5ZDJ">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZNFGE5C5O3TMKIZIWHYWQ0WQ0MT35FGGQ5LTL4LBCQ4SC1W5BLBK">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHR210NP3L5BCEVJVZ4YL1RILBHCM344CDCVK0WLMEOEQEN2XCO4N">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQOPU4UQVC31YFGLKVK2GVSW2IOBUZMAXG2VQ2F2R3PZYDEKQRRJ">Width Constraint (Min=10mil) (Max=40mil) (Preferred=30mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPEQWBZANFF0LBDHHCJUEPXONXDXGBTTGOAF1XGM1VE13FXSDD11F">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID52TNAUD54TLDEMPYX0QICKUUXPKZMWF0UIZ0NILLN3FWNJKKXC3L">Hole Size Constraint (Min=1mil) (Max=100mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRFTCJJENRMG4G532S3KKR1NMMFAA1P0UWU3N3E4SMAXEKT44BIP">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDOTRFDWIZXBFRCZZOPENAKACHOEQZ4OITEGOCVFUTHER0TU5DQ1G">Minimum Solder Mask Sliver (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2NADWX1WZLNPKB5RIP45I44VYMHCVGIKFSD2SRMYNLUOGVT0PUSO">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</a></td>
+<td class="column2">1</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUQ12AXVLZJPJDYVK4CIT0CTGCOKKZY2S3T1PJCCPVXPG2KBXFGEO">Silk to Silk (Clearance=10mil) (All),(All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDT4M3WGVRAYMLGZ4JTGFBEABY0F5CPITX1XHQGKLVR0OYQV1EONSE">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMNEM0F5WFEZDCGGEANJEHY1GLGSXPYQB5JWSAAMTN4R0EEGRKRY">Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project'))</a></td>
+<td class="column2">16</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2GNIVLNQMWBEGC3ADZ5MDCZCOOCT4JTS2M3S3KE5YZNMIA3F2PSF">Room AT long bus (13.3 x 4.2 inches) (Bounding Region = (0mil, 0mil, 2000mil, 1000mil) (InComponentClass('AT long bus (13.3 x 4.2 inches)'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDC0IKTTB1UNV1FPM1KHAY1XYHFNLJ1DNEKUFOTUD0KLHWPSXG5JIC">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">21</td>
+</tr>
+</table><br><a name="ID2NADWX1WZLNPKB5RIP45I44VYMHCVGIKFSD2SRMYNLUOGVT0PUSO"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=10mil) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2461.488mil|Location2.X=2469.155mil|Location1.Y=3876.696mil|Location2.Y=3884.363mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2461.488mil|Location2.X=2469.155mil|Location1.Y=3876.696mil|Location2.Y=3884.363mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 10mil) Between Text "P4" (2436.815mil,3854.366mil) on Top Overlay And Pad P4-5(2480.315mil,3858.268mil) on Multi-Layer [Top Overlay] to [Top Solder] clearance [0mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDUQ12AXVLZJPJDYVK4CIT0CTGCOKKZY2S3T1PJCCPVXPG2KBXFGEO"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=10mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2429.2mil|Location2.X=2436.867mil|Location1.Y=3850.533mil|Location2.Y=3858.2mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2429.2mil|Location2.X=2436.867mil|Location1.Y=3850.533mil|Location2.Y=3858.2mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "P4" (2436.815mil,3854.366mil) on Top Overlay And Track (2430.315mil,3020.866mil)(2430.315mil,4500mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2525.249mil|Location2.X=2532.915mil|Location1.Y=3850.533mil|Location2.Y=3858.2mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2525.249mil|Location2.X=2532.915mil|Location1.Y=3850.533mil|Location2.Y=3858.2mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "P4" (2436.815mil,3854.366mil) on Top Overlay And Track (2530.315mil,3020.866mil)(2530.315mil,4500mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2526.482mil|Location2.X=2534.148mil|Location1.Y=2547.521mil|Location2.Y=2555.188mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2526.482mil|Location2.X=2534.148mil|Location1.Y=2547.521mil|Location2.Y=2555.188mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "P5" (2436.815mil,2491.374mil) on Top Overlay And Track (2530.315mil,1957.874mil)(2530.315mil,2841.535mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2429.2mil|Location2.X=2436.867mil|Location1.Y=2487.541mil|Location2.Y=2495.207mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2429.2mil|Location2.X=2436.867mil|Location1.Y=2487.541mil|Location2.Y=2495.207mil|Absolute=True">Silk To Silk Clearance Constraint: (Collision &lt; 10mil) Between Text "P5" (2436.815mil,2491.374mil) on Top Overlay And Track (2430.315mil,1957.874mil)(2430.315mil,2841.535mil) on Top Overlay Silk Text to Silk Clearance [0mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDMNEM0F5WFEZDCGGEANJEHY1GLGSXPYQB5JWSAAMTN4R0EEGRKRY"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project'))</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2856.299mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=4109.055mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2856.299mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=4109.055mil|Absolute=True">Room Definition: Between Small Component Q2-LM7809CT/NOPB (3110.236mil,4055.118mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2856.299mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3794.095mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2856.299mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3794.095mil|Absolute=True">Room Definition: Between Small Component Q1-LM7805CT/NOPB (3110.236mil,3740.158mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3490.158mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=4424.016mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3490.158mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=4424.016mil|Absolute=True">Room Definition: Between Small Component P-Power-Header 2 (3740.158mil,4370.079mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2978.347mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=4424.016mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2978.347mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=4424.016mil|Absolute=True">Room Definition: Between Small Component P-9V-Header 2 (3228.347mil,4370.079mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2426.378mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=2845.472mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2426.378mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=2845.472mil|Absolute=True">Room Definition: Between SIP Component P5-Header 5 (2480.315mil,2007.874mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2426.378mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=4503.937mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2426.378mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=4503.937mil|Absolute=True">Room Definition: Between SIP Component P4-Header 8 (2480.315mil,3070.866mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2701.969mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=2061.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2701.969mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=2061.811mil|Absolute=True">Room Definition: Between SIP Component P3-Header 5 (2755.906mil,2007.874mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3725.591mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=2061.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3725.591mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=2061.811mil|Absolute=True">Room Definition: Between SIP Component P1-Header 5 (3779.528mil,2007.874mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841.929mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3228.543mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841.929mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3228.543mil|Absolute=True">Room Definition: Between Small Component C8 (3070.866mil,3149.606mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841.929mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3504.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841.929mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3504.134mil|Absolute=True">Room Definition: Between Small Component C7 (3070.866mil,3425.197mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3393.11mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3504.134mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3393.11mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3504.134mil|Absolute=True">Room Definition: Between Small Component C6 (3622.047mil,3425.197mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3393.11mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3228.544mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3393.11mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3228.544mil|Absolute=True">Room Definition: Between Small Component C5 (3622.047mil,3149.606mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841.929mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=2677.362mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841.929mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=2677.362mil|Absolute=True">Room Definition: Between Small Component C4 (3070.866mil,2598.425mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841.929mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=2952.953mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2841.929mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=2952.953mil|Absolute=True">Room Definition: Between Small Component C3 (3070.866mil,2874.016mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4173.032mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3457.284mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4173.032mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3457.284mil|Absolute=True">Room Definition: Between Small Component C2 (4251.969mil,3228.347mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3976.181mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3457.284mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Public\Documents\Altium\Projects\Power_Supply\Power_Supply.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3976.181mil|Location2.X=10090mil|Location1.Y=1060mil|Location2.Y=3457.284mil|Absolute=True">Room Definition: Between Small Component C1 (4055.118mil,3228.347mil) on Top Layer And Room Final project (Bounding Region = (7045mil, 1060mil, 10090mil, 1980mil) (InComponentClass('Final project')) </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

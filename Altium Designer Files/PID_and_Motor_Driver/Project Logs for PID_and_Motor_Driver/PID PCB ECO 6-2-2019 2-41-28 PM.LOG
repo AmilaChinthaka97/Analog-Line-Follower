@@ -1,0 +1,38 @@
+Removed Pin From Net: NetName=NetR_PID_1_2 Pin=R_Speed_Adjust_2-1
+Removed Pin From Net: NetName=NetR_PID_1_2 Pin=R_Speed_Adjust__Left_3-1
+Change Component Designator: OldDesignator=CD1 NewDesignator=100pF-CD1
+Change Component Designator: OldDesignator=CD2 NewDesignator=0.1uF-CD2
+Change Component Designator: OldDesignator=CI NewDesignator=0.1uF-CI
+Change Component Designator: OldDesignator=R_PID_1 NewDesignator=10k-R_PID_1
+Change Component Designator: OldDesignator=R_PID_2 NewDesignator=10k-R_PID_2
+Change Component Designator: OldDesignator=R_PID_3 NewDesignator=10k-R_PID_3
+Change Component Designator: OldDesignator=R_PID_4 NewDesignator=10k-R_PID_4
+Change Component Designator: OldDesignator=R_PID_5 NewDesignator=10k-R_PID_5
+Change Component Designator: OldDesignator=RD1 NewDesignator=20k-RD1
+Change Component Designator: OldDesignator=RD3 NewDesignator=10k-RD3
+Change Component Designator: OldDesignator=RI2 NewDesignator=10k-RI2
+Change Component Designator: OldDesignator=RP1 NewDesignator=10k-RP1
+Change Component Designator: OldDesignator=RP2 NewDesignator=10k-RP2
+Change Component Designator: OldDesignator=RP3 NewDesignator=10k-RP3
+Change Net Name : Old Net Name=NetC_Base_Speed_1 New Net Name=Net10k-R_PID_4_1
+Change Net Name : Old Net Name=NetCD1_1 New Net Name=Net20k-RD1_2
+Change Net Name : Old Net Name=NetCD1_2 New Net Name=Net0.1uF-CD2_1
+Change Net Name : Old Net Name=NetCD2_2 New Net Name=Net0.1uF-CD2_2
+Change Net Name : Old Net Name=NetCI_1 New Net Name=Net0.1uF-CI_1
+Change Net Name : Old Net Name=NetCI_2 New Net Name=Net0.1uF-CI_2
+Change Net Name : Old Net Name=NetR_PID_1_1 New Net Name=Net10k-R_PID_1_1
+Change Net Name : Old Net Name=NetR_PID_1_2 New Net Name=Net10k-R_PID_1_2
+Change Net Name : Old Net Name=NetR_PID_2_1 New Net Name=Net10k-R_PID_2_1
+Change Net Name : Old Net Name=NetR_PID_3_1 New Net Name=Net10k-R_PID_3_1
+Change Net Name : Old Net Name=NetR_PID_4_2 New Net Name=Net10k-R_PID_4_2
+Change Net Name : Old Net Name=NetRP1_2 New Net Name=Net10k-RP1_2
+Change Net Name : Old Net Name=NetRP2_2 New Net Name=Net10k-RP2_2
+Change Net Name : Old Net Name=NetRP3_2 New Net Name=Net10k-RP3_2
+Added Pin To Net: NetName=Net10k-R_PID_5_2 Pin=10k-R_PID_5-2
+Added Pin To Net: NetName=Net10k-R_PID_5_2 Pin=R_Speed_Adjust_2-1
+Added Pin To Net: NetName=Net10k-R_PID_5_2 Pin=R_Speed_Adjust__Left_3-1
+Added Pin To Net: NetName=Net10k-R_PID_5_2 Pin=U_PID-14
+Added Net: Name=Net10k-R_PID_5_2
+Added Member To Class: ClassName=PID Member=Component RV_Base_Speed 3362R-1-222
+Added Room: Name=AT long bus (13.3 x 4.2 inches)
+Added Room: Name=PID

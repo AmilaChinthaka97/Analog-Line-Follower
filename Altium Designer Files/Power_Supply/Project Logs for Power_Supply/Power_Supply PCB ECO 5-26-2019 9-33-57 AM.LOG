@@ -1,0 +1,26 @@
+Added Component: Designator=Q1(HDR1X3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "ON Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "LM7805CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "TO-220 ON Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/LM7805CT/ON%20Semiconductor/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=Q2(HDR1X3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "ON Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "LM7805CT"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "TO-220 ON Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/LM7805CT/ON%20Semiconductor/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC1_2 Pin=Q1-1
+Added Pin To Net: NetName=NetC1_1 Pin=Q1-2
+Added Pin To Net: NetName=NetC3_2 Pin=Q1-3
+Added Pin To Net: NetName=NetC1_2 Pin=Q2-1
+Added Pin To Net: NetName=NetC1_1 Pin=Q2-2
+Added Pin To Net: NetName=NetC7_2 Pin=Q2-3
+Added Member To Class: ClassName=Final project Member=Component Q1 LM7805CT/NOPB
+Added Member To Class: ClassName=Final project Member=Component Q2 LM7809CT/NOPB

@@ -1,0 +1,4 @@
+Change Component Designator: OldDesignator=RI2 NewDesignator=RD2
+Added Pin To Net: NetName=NetCI_1 Pin=U_PID-9
+Change Net Name : Old Net Name=NetRI2_2 New Net Name=NetRD2_2
+Added Member To Class: ClassName=PID Member=Component RD2 Res1
